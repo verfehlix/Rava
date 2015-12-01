@@ -3,7 +3,7 @@ package yolo;
 import java.util.ArrayList;
 
 public class Tester {
-	//MAIN -- look here for examples of how to use Rava
+		//some examples of how to use Rava
 		public static void main(String a[]) {
 			Rava superRava = new Rava();
 			
