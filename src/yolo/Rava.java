@@ -28,29 +28,6 @@ public class Rava {
 		}
 	}
 	
-	//MAIN -- look here for examples of how to use Rava
-	public static void main(String a[]) {
-		Rava myRava = new Rava();
-		
-		ArrayList<Double> myNumbers = new ArrayList<Double>();
-		myNumbers.add(4.0);
-		myNumbers.add(4.0);
-		myNumbers.add(4.0);
-		myNumbers.add(4.0);
-		
-		ArrayList<Double> moreNumbers = new ArrayList<Double>();
-		moreNumbers.add(5.0);
-		moreNumbers.add(5.0);
-		moreNumbers.add(5.0);
-		moreNumbers.add(5.0);
-		
-		System.out.println("calculating mean of myNumbers");
-		myRava.calculateMean(myNumbers);
-		
-		System.out.println("calculating accuracy measures of myNumbers and moreNumbers");
-		myRava.calculateAccuracy(myNumbers, moreNumbers);
-	}
-	
 	//============== Methods that interact with RServe ==============
 	
 	public void calculateMean(ArrayList<Double> numbers){
