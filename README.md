@@ -40,4 +40,29 @@ public class MySuperAwesomeStuffThatNeedsRInJava {
 
 ```
 
+Output looks like this:
+```
+Connection to RServe successful.
+
+Calculating accuracy measures of myNumbers and moreNumbers
+The Measured accuracy is:
+[ME, RMSE, MAE, MPE, MAPE]
+[1.0, 1.0, 1.0, 20.0, 20.0]
+
+```
+
+If your forgot to start the **Rserve** server, it will throw an error and remind you to do it:
+```
+ERROR!!!! Is the RServe Server running?
+If not, go into RStudio and type:
+library(Rserve)
+Rserve()
+org.rosuda.REngine.Rserve.RserveException: Cannot connect: Connection refused: connect
+	at org.rosuda.REngine.Rserve.RConnection.<init>(RConnection.java:88)
+	at org.rosuda.REngine.Rserve.RConnection.<init>(RConnection.java:60)
+	at org.rosuda.REngine.Rserve.RConnection.<init>(RConnection.java:44)
+	at yolo.Rava.<init>(Rava.java:18)
+	at yolo.Tester.main(Tester.java:8)
+```
+
 That's it, have fun...
