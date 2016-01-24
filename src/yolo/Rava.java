@@ -91,6 +91,37 @@ public class Rava {
         }
 	}
 	
+	public void plot(ArrayList<Double> data1, ArrayList<Double> data2){
+		try {
+			//convert array lists to R vectors
+            String data1Vector = this.doubleListToRVector(data1);
+            String data2Vector = this.doubleListToRVector(data2);
+            
+            //calculate different accuracy measures from forecast module using "accuracy" method and save result to "calculated_accuracy" variable in R
+            this.connection.eval("d1 <- " + data1Vector);
+            this.connection.eval("d1 <- " + data2Vector);
+            this.connection.eval("index <- c(1:length(d1))");
+            this.connection.eval("index <- c(1:length(d1))");
+            this.connection.eval("png(filename='testPlot.png',width= 1000, height = 600)");
+            this.connection.eval("plot(index,d1,type='la',col='red',ylim=c(min(d1,d2)-2,max(d1,d2)+2))");
+            this.connection.eval("lines(index,d2,col='green')");
+            this.connection.eval("dev.off()");
+
+            //get variable "calculated_accuracy" and store it in a String in Java
+            String pwd = this.connection.eval("getwd()").asString();
+            
+            //print result
+            System.out.println("The generated plot should be saved here:");
+            System.out.println(pwd);
+            
+            
+        } catch (RserveException e) {
+            e.printStackTrace();
+        } catch (REXPMismatchException e) {
+            e.printStackTrace();
+        }
+	}
+	
 	//============== UTILITY METHODS ==============
 	
 	private String doubleListToRVector(ArrayList<Double> numbers) {
