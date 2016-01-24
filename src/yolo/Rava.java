@@ -91,7 +91,7 @@ public class Rava {
         }
 	}
 	
-	public void plot(ArrayList<Double> data1, ArrayList<Double> data2){
+	public void plot(ArrayList<Double> data1, ArrayList<Double> data2, String path, String fileName){
 		try {
 			//convert array lists to R vectors
             String data1Vector = this.doubleListToRVector(data1);
@@ -99,10 +99,11 @@ public class Rava {
             
             //calculate different accuracy measures from forecast module using "accuracy" method and save result to "calculated_accuracy" variable in R
             this.connection.eval("d1 <- " + data1Vector);
-            this.connection.eval("d1 <- " + data2Vector);
+            this.connection.eval("d2 <- " + data2Vector);
+            this.connection.eval("subDir <- '" + path + "'");
+            this.connection.eval("ifelse(!dir.exists(file.path(getwd(), subDir)), dir.create(file.path(getwd(), subDir)), FALSE)");
             this.connection.eval("index <- c(1:length(d1))");
-            this.connection.eval("index <- c(1:length(d1))");
-            this.connection.eval("png(filename='testPlot.png',width= 1000, height = 600)");
+            this.connection.eval("png(filename='"+path + "/" + fileName + ".png',width= 1000, height = 600)");
             this.connection.eval("plot(index,d1,type='la',col='red',ylim=c(min(d1,d2)-2,max(d1,d2)+2))");
             this.connection.eval("lines(index,d2,col='green')");
             this.connection.eval("dev.off()");
@@ -112,7 +113,7 @@ public class Rava {
             
             //print result
             System.out.println("The generated plot should be saved here:");
-            System.out.println(pwd);
+            System.out.println(pwd + "/" + path + "/" + fileName + ".png");
             
             
         } catch (RserveException e) {

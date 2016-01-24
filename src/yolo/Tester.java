@@ -19,10 +19,7 @@ public class Tester {
 			moreNumbers.add(5.0);
 			moreNumbers.add(5.0);
 			
-			System.out.println("calculating mean of myNumbers");
-			superRava.calculateMean(myNumbers);
-			
-			System.out.println("calculating accuracy measures of myNumbers and moreNumbers");
-			superRava.calculateAccuracy(myNumbers, moreNumbers);
+
+			superRava.plot(myNumbers, moreNumbers, "supaBildaz", "yolo");
 		}
 }
