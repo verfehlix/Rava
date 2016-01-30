@@ -20,6 +20,6 @@ public class Tester {
 			moreNumbers.add(5.0);
 			
 
-			superRava.plot(myNumbers, moreNumbers, "supaBildaz", "yolo");
+			superRava.plot(myNumbers, moreNumbers, "bilder_test", "testname");
 		}
 }
