@@ -1,5 +1,5 @@
 # Rava
-Execute some R stuff inside Java
+Execute R inside Java
 
 ## Instructions
 ### R-Studio
@@ -64,5 +64,3 @@ org.rosuda.REngine.Rserve.RserveException: Cannot connect: Connection refused: c
 	at yolo.Rava.<init>(Rava.java:18)
 	at yolo.Tester.main(Tester.java:8)
 ```
-
-That's it, have fun...
